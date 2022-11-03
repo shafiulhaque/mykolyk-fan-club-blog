@@ -1,0 +1,13 @@
+Mykolyk Fan Club: Shafiul Haque, April Li, David Deng
+SoftDev
+P00 -- devlog
+
+format: -----------------------------------------------------------------------
+
+firstL -- TIMESTAMP\n
+	explain what changes have been made
+	include errors/bugs discovered (or created)
+	
+-------------------------------------------------------------------------------
+Shafiul -- 11/3/2022 6:44
+	finished design.pdf
