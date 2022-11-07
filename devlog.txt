@@ -9,5 +9,9 @@ firstL -- TIMESTAMP\n
 	include errors/bugs discovered (or created)
 	
 -------------------------------------------------------------------------------
+Shafiul -- 11/1/2022 5:46
+	added both versions of our original design doc
 Shafiul -- 11/3/2022 6:44
 	finished design.pdf
+April, David -- 11/7/2022 13:47
+	added the flag and updated design.pdf
