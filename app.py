@@ -18,14 +18,14 @@ app.secret_key = 'hi'
 username = 'bruh'
 password = 'bruh2'
 
-def filereader():
-    file1 = open("devofam.csv",'r')
-    sha = file1.readlines()
-    for e in sha:
-        ar = e.split(',')
-        ar[2] = ar[2][0:len(ar[2])-1]
-        mydict[ar[0]] = ar[2]
-filereader()
+# def filereader():
+#     file1 = open("devofam.csv",'r')
+#     sha = file1.readlines()
+#     for e in sha:
+#         ar = e.split(',')
+#         ar[2] = ar[2][0:len(ar[2])-1]
+#         mydict[ar[0]] = ar[2]
+# filereader()
 
 
 @app.route('/')
