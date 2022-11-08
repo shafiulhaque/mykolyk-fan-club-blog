@@ -2,8 +2,15 @@ from flask import Flask             #facilitate flask webserving
 from flask import render_template   #facilitate jinja templating
 from flask import request           #facilitate form submission
 from flask import session
+import sqlite3   #enable control of an sqlite database
+import csv       #facilitate CSV I/O  
 
 app = Flask(__name__)
+
+DB_FILE="discobandit.db"
+
+db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+c = db.cursor()   
 
 mydict = {}
 
