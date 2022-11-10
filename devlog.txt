@@ -16,4 +16,6 @@ Shafiul -- 11/3/2022 6:44
 April, David -- 11/7/2022 13:47
 	added the flag and updated design.pdf
 April -- 11/8/2022 12:40
-    uploaded our login and logout functions from k19 
+	uploaded our login and logout functions from k19
+Shafiul -- 11/10/2022 6:45
+	updated the requirements.txt
