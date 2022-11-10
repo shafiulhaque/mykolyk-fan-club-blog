@@ -26,3 +26,14 @@ Pages
 Table would be used to store all pages of the website 
 Will store html template links 
 When data is loaded into the template links, the specific webpage would show
+
+
+
+How to clone/install
+
+git clone ssh
+
+
+How to run
+
+Once you clone, navigate to the app portal and run python3 __init__.py
