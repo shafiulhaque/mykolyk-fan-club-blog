@@ -36,7 +36,13 @@ git clone ssh
 ```
 
 How to Run
+1) 
 ``` 
 cd app
+```
+2)
+``` 
 python3 __init__.py
 ```
+3) 
+Copy the link provided and open it. 
