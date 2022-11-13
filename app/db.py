@@ -88,7 +88,18 @@ def edit_blog(id, new_content):
 
 
 ##GET FUNCTIONS##
-def get_users(): 
+def get_usernames(): 
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT username FROM users")
+    all_users = c.fetchall()
+
+    db.close()
+
+    return all_users
+
+def get_usernames_passwords():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -135,19 +146,23 @@ def get_user_blogs(username):
 
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()
-'''
-db.execute("DROP TABLE IF EXISTS users") 
-create_tables()
-print(check_user_exist("akitiss")) #False
-create_user("akitiss", "hellaur")
-print(check_user_exist("akitiss")) #True
-print(login_check("akitiss", "hellaur")) # True
-print(login_check("akitiss", "sup")) # False
-'''
 
+db.execute("DROP TABLE IF EXISTS users") 
 db.execute("DROP TABLE IF EXISTS blogs")
+
 create_tables()
+#print(check_user_exist("akitiss")) #False
+create_user("akitiss", "hellaur")
+#print(check_user_exist("akitiss")) #True
+#print(login_check("akitiss", "hellaur")) # True
+#print(login_check("akitiss", "sup")) # False
+create_user("pie", "apple")
+
 create_blog(20, "akitiss", "title", "content")
 print(edit_blog_check(20, "akitiss")) #True
 print(edit_blog_check(10, "akitiss")) #False
 edit_blog(10, "hellaururuur")
+
+print(get_usernames())
+print(get_usernames_passwords())
+print(get_all_blogs())
