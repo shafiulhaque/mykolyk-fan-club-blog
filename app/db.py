@@ -81,7 +81,7 @@ def edit_blog(id, new_content):
 
     t = datetime.now()
     new_time = t.strftime("%B %d, %Y %H:%M")
-    c.execute("UPDATE blogs SET (content = ?, time  = ?) WHERE id = ?", (new_content, new_time, id))
+    c.execute("UPDATE blogs SET content = ?, time  = ? WHERE id = ?", (new_content, new_time, id))
 
     db.commit()
     db.close()
@@ -150,3 +150,4 @@ create_tables()
 create_blog(20, "akitiss", "title", "content")
 print(edit_blog_check(20, "akitiss")) #True
 print(edit_blog_check(10, "akitiss")) #False
+edit_blog(10, "hellaururuur")
