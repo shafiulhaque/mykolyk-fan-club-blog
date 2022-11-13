@@ -23,5 +23,7 @@ April -- 11/12/2022 18:31
 	created tables and created functions to create new user and check user information
 April -- 11/13/2022 14:15 
 	made create blog and edit blog functions, made get functions for users and blogs, imported time
-April -- 11/132022 14:32 
+April -- 11/13/2022 14:32 
 	fixed up get functions for the blog 
+April -- 11/13/2022 17:25
+	made blogs have unqiue ids

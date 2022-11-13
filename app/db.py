@@ -52,12 +52,13 @@ def login_check(username, password): #return True is username and password match
 
 
 ##BLOG FUNCTIONS##
-def create_blog(id, username, title, content):
+def create_blog(username, title, content):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
     t = datetime.now()
     time = t.strftime("%B %d, %Y %H:%M")
+    id = len(get_all_blogs())
     c.execute("INSERT INTO blogs VALUES(?, ?, ?, ?, ?)", (id, username, title, content, time))
 
     db.commit()
@@ -130,18 +131,20 @@ def get_blog_info(id, username):
     blog = c.fetchall()
 
     db.close()
-
+    if (blog == []):
+        print("ERROR: There is no blog found with this information")
     return blog
 
 def get_user_blogs(username): 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT * FROM blogs WHERE (id > ? AND username = ?)", (0, username))
+    c.execute("SELECT * FROM blogs WHERE (id >= ? AND username = ?)", (0, username))
     user_blogs = c.fetchall()
 
     db.close()
-
+    if (user_blogs == []):
+        print("ERROR: This user has no blogs or this user does not exist")
     return user_blogs
 
 '''
@@ -159,13 +162,13 @@ create_user("akitiss", "hellaur")
 #print(login_check("akitiss", "sup")) # False
 create_user("pie", "apple")
 
-create_blog(1, "akitiss", "title", "content")
-create_blog(2, "pie", "title", "content")
+create_blog("akitiss", "title", "content")
+create_blog("pie", "title", "content")
 print(edit_blog_check(1, "akitiss")) #True
 print(edit_blog_check(2, "akitiss")) #False
 edit_blog(1, "hellaururuur")
 
-create_blog(3, "akitiss", "men", "words")
+create_blog("akitiss", "men", "words")
 print(get_usernames())
 print(get_usernames_passwords())
 pprint.pprint(get_all_blogs())
@@ -175,3 +178,4 @@ print(get_blog_info(3, "akitiss"))
 pprint.pprint(get_user_blogs("akitiss"))
 pprint.pprint(get_user_blogs("pie"))
 pprint.pprint(get_user_blogs("name"))
+'''
