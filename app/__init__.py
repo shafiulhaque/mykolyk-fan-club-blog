@@ -7,11 +7,6 @@ import csv       #facilitate CSV I/O
 
 app = Flask(__name__)
 
-DB_FILE="discobandit.db"
-
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()   
-
 mydict = {}
 
 app.secret_key = 'hi'
