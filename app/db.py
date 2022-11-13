@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import datetime
+import pprint
 
 DB_FILE="discobandit.db"
 
@@ -121,11 +122,11 @@ def get_all_blogs():
 
     return all_blogs
 
-def get_blog_info(id):
+def get_blog_info(id, username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT * FROM blogs WHERE id = ?", id)
+    c.execute("SELECT * FROM blogs WHERE (id = ? AND username = ?)", (id, username))
     blog = c.fetchall()
 
     db.close()
@@ -136,14 +137,14 @@ def get_user_blogs(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT * FROM blogs WHERE username = ?", username)
+    c.execute("SELECT * FROM blogs WHERE (id > ? AND username = ?)", (0, username))
     user_blogs = c.fetchall()
 
     db.close()
 
     return user_blogs
 
-
+'''
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()
 
@@ -158,11 +159,20 @@ create_user("akitiss", "hellaur")
 #print(login_check("akitiss", "sup")) # False
 create_user("pie", "apple")
 
-create_blog(20, "akitiss", "title", "content")
-print(edit_blog_check(20, "akitiss")) #True
-print(edit_blog_check(10, "akitiss")) #False
-edit_blog(10, "hellaururuur")
+create_blog(1, "akitiss", "title", "content")
+create_blog(2, "pie", "title", "content")
+print(edit_blog_check(1, "akitiss")) #True
+print(edit_blog_check(2, "akitiss")) #False
+edit_blog(1, "hellaururuur")
 
+create_blog(3, "akitiss", "men", "words")
 print(get_usernames())
 print(get_usernames_passwords())
-print(get_all_blogs())
+pprint.pprint(get_all_blogs())
+print(get_blog_info(1, "akitiss"))
+print(get_blog_info(2, "akitiss"))
+print(get_blog_info(3, "akitiss"))
+pprint.pprint(get_user_blogs("akitiss"))
+pprint.pprint(get_user_blogs("pie"))
+pprint.pprint(get_user_blogs("name"))
+'''
