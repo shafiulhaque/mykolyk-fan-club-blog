@@ -4,17 +4,16 @@ from flask import request           #facilitate form submission
 from flask import session
 from flask import redirect
 
-from db import create_tables, check_user_exist
+from db import create_tables, check_user_exist, create_user, login_check
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O  
 
 app = Flask(__name__)
 
-mydict = {}
-
 app.secret_key = 'hi'
-username = 'bruh'
-password = 'bruh2'
+create_user('shaf','bruh1234')
+create_user('akitiss','horanghae')
+            
 
 @app.route('/')
 def show():
@@ -28,14 +27,13 @@ def disp_loginpage():
         return redirect('/response')
     if request.method == 'GET':
         return render_template('login.html')
-    user = request.form['username']
-    pw = request.form['password']
-    if request.method == 'POST' and user == username:
-        if pw == password:
-            session['username'] = user
+    if request.method == 'POST':
+        if not login_check(request.form['username'], request.form['password']):
+            return render_template('login.html', error="Incorrect password or username")
+        else: 
+            session['username'] = request.form['username']
+            session['password'] = request.form['password']
             return redirect('/response')
-        return render_template('login.html', error="Error: Incorrect Password") #in case the password is incorrect
-    return render_template('login.html', error ="Error: Incorrect Username") #in case the username is incorrect
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -44,12 +42,19 @@ def signup():
     if request.method == 'GET':
         return render_template('signup.html')
     if request.method == 'POST':
+        if (check_user_exist(request.form['username'])):
+            return render_template('signup.html', error ="Username already in use")
+        if (request.form['password'] == ""):
+            return render_template('signup.html', error ="Blank password")
         session['username'] = request.form['username']
+        session['password'] = request.form['password']
+        create_user(session['username'], session['password'])
     return redirect('/response')
 
 @app.route("/logout", methods=['GET', 'POST'])
 def disp_logoutpage():
     session.pop('username')
+    session.pop('password')
     return redirect('/')
 
 @app.route("/response", methods=['GET', 'POST'])
