@@ -32,7 +32,10 @@ def create_user(username, password):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("INSERT INTO users VALUES(?, ?)", (username, password))
+    if not (check_user_exist(username)):
+        c.execute("INSERT INTO users VALUES(?, ?)", (username, password))
+    else:
+        print("ERROR: Username already exists")
 
     db.commit()
     db.close()
@@ -123,11 +126,11 @@ def get_all_blogs():
 
     return all_blogs
 
-def get_blog_info(id, username):
+def get_blog_info(id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT * FROM blogs WHERE (id = ? AND username = ?)", (id, username))
+    c.execute("SELECT * FROM blogs WHERE id = ?", (id,))
     blog = c.fetchall()
 
     db.close()
@@ -139,7 +142,7 @@ def get_user_blogs(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT * FROM blogs WHERE (id >= ? AND username = ?)", (0, username))
+    c.execute("SELECT * FROM blogs WHERE username = ?", (username,))
     user_blogs = c.fetchall()
 
     db.close()
@@ -153,18 +156,18 @@ c = db.cursor()
 
 db.execute("DROP TABLE IF EXISTS users") 
 db.execute("DROP TABLE IF EXISTS blogs")
-
 create_tables()
-#print(check_user_exist("akitiss")) #False
+
+print(check_user_exist("akitiss")) #False
 create_user("akitiss", "hellaur")
-#print(check_user_exist("akitiss")) #True
-#print(login_check("akitiss", "hellaur")) # True
-#print(login_check("akitiss", "sup")) # False
+print(check_user_exist("akitiss")) #True
+print(login_check("akitiss", "hellaur")) # True
+print(login_check("akitiss", "sup")) # False
 create_user("pie", "apple")
 
 create_blog("akitiss", "title", "content")
 create_blog("pie", "title", "content")
-print(edit_blog_check(1, "akitiss")) #True
+print(edit_blog_check(0, "akitiss")) #True
 print(edit_blog_check(2, "akitiss")) #False
 edit_blog(1, "hellaururuur")
 
@@ -172,9 +175,9 @@ create_blog("akitiss", "men", "words")
 print(get_usernames())
 print(get_usernames_passwords())
 pprint.pprint(get_all_blogs())
-print(get_blog_info(1, "akitiss"))
-print(get_blog_info(2, "akitiss"))
-print(get_blog_info(3, "akitiss"))
+print(get_blog_info(1))
+print(get_blog_info(2))
+print(get_blog_info(3))
 pprint.pprint(get_user_blogs("akitiss"))
 pprint.pprint(get_user_blogs("pie"))
 pprint.pprint(get_user_blogs("name"))

@@ -4,13 +4,16 @@ from flask import request           #facilitate form submission
 from flask import session
 from flask import redirect
 
-from db import create_tables, check_user_exist, create_user, login_check
+from db import *
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O  
+import os
 
 app = Flask(__name__)
 
-app.secret_key = 'hi'
+app.secret_key = os.urandom(32)
+
+create_tables()
 create_user('shaf','bruh1234')
 create_user('akitiss','horanghae')
             
