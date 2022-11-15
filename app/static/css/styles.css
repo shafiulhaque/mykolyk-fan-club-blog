@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-family: 'Libre Baskerville', serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: lavender;
+}
+
+.body-container {
+    margin-top: 10vh!important;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.body-container h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: blue;
+}
+
+input {
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: none;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 24px;
+    padding: 10px;
+}
+
+input:hover {
+    border: 2px solid whitesmoke;
+}

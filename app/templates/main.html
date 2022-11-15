@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-
-
-<html>
-
+<html lang="en">
   <head>
-    <title> HOME PAGE </title>
+    <title>HOME</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <h1>
-      Welcome, Members of the Mykolyk Fan Club!
-    </h1>
+    <div class="body-container">
+      <h1>
+        Welcome, Members of the Mykolyk Fan Club!
+      </h1>
 
-		<form action="/login" method="GET">
-			<input type="submit" value="login">
-		</form>
-    <br>
-    <form action="/signup" method="GET">
-			<input type="submit" value="signup">
-		</form>
-    <br>
+      <form action="/login" method="GET">
+        <input type="submit" value="login">
+      </form>
+
+      <form action="/signup" method="GET">
+        <input type="submit" value="signup">
+      </form>
+    </div>
   </body>
 
 </html>
