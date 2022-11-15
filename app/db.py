@@ -9,7 +9,7 @@ def create_tables():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()   
     #checks to see if the tables exist, if not the tables will be created
-    c.execute("CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT, date TEXT, bio TEXT)")
     c.execute("CREATE TABLE IF NOT EXISTS blogs(id INT, username TEXT, title TEXT, content TEXT,time TEXT)")
     
     db.commit()
@@ -33,7 +33,9 @@ def create_user(username, password):
     c = db.cursor()
 
     if not (check_user_exist(username)):
-        c.execute("INSERT INTO users VALUES(?, ?)", (username, password))
+        t = datetime.now()
+        time = t.strftime("%B %d, %Y %H:%M")
+        c.execute("INSERT INTO users VALUES(?, ?, ?, ?)", (username, password, time, "Slay"))
     else:
         print("ERROR: Username already exists")
 
