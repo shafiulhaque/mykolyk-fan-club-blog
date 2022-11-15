@@ -11,6 +11,13 @@
     <h1>
       Welcome, {{username}}, of the Mykolyk Fan Club!
     </h1>
+    <form action="/" method="POST">
+			<input type="submit" value="home">
+		</form>
+    <br>
+    <form action="/view" method="GET">
+			<input type="submit" value="back" name="{{infor[0]}}">
+		</form>
 
 		<form action="/view" method="POST">
       <p> Title: {{infor[2]}} </p>
