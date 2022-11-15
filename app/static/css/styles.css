@@ -79,3 +79,9 @@ h2 {
     font-size: 28px;
     padding: 10px 0;
 }
+
+.body-container p {
+    font-size: 28px;
+    margin-top: 10px;
+    padding: 5px 0;
+}

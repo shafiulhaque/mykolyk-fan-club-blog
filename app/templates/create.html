@@ -7,20 +7,23 @@
   </head>
 
   <body>
-    <form action="/" method="POST">
-			<input type="submit" value="home">
-		</form>
-    <br>
+    <div class="navbar">
+      <form action="/" method="POST">
+        <input type="submit" value="Home">
+      </form>
+      <br>
+    </div>
 
     <div class="body-container">
       <form action="/create" method="POST">
-        <p> Title </p>
+        <p>Title</p>
         <input type="text" name="title">
         <br>
-        <p> Content </p>
-        <input type="text" name="content">
+
+        <p>Content</p>
+        <textarea cols="50" rows="5" type="text" name="content" style="font-size: 18px;"></textarea>
         <br><br>
-        <input type="submit" name="sub2" value="create">
+        <input type="submit" name="sub2" value="Create">
       </form>
 
       <br>
