@@ -45,10 +45,14 @@ def signup():
     if request.method == 'GET':
         return render_template('signup.html')
     if request.method == 'POST':
+        if (request.form['username'].isspace()):
+            return render_template('signup.html', error ="Blank username")
         if (check_user_exist(request.form['username'])):
             return render_template('signup.html', error ="Username already in use")
-        if (request.form['password'] == ""):
+        if (request.form['password'].isspace()):
             return render_template('signup.html', error ="Blank password")
+        if (len(request.form['password']) <= 7):
+            return render_template('signup.html', error ="Password is too short")
         session['username'] = request.form['username']
         session['password'] = request.form['password']
         create_user(session['username'], session['password'])
@@ -71,6 +75,10 @@ def create():
     if request.method == 'GET':
         return render_template('create.html', username = session['username'])
     if request.method == 'POST':
+        if (request.form['title'].isspace() or len(request.form['title']) == 0):
+            return render_template('create.html', username = session['username'], error="There needs to be a title!")
+        if (request.form['content'].isspace() or len(request.form['content']) == 0):
+            return render_template('create.html', username = session['username'], error="Content is empty.")
         create_blog(session['username'], request.form['title'], request.form['content'])
         all_blogs = get_all_blogs()
         return redirect('/response')
@@ -84,11 +92,10 @@ def view():
         print(info)
         return render_template('view.html', username = session['username'], infor = info)
     if request.method == 'POST':
-        print(list(request.form)[1])
-        print(request.form['content'])
+        if (request.form['content'].isspace() or len(request.form['content']) == 0):
+            return render_template('view.html', username = session['username'], error="Content is empty.")
         edit_blog(list(request.form)[1], request.form['content'])
         info = get_blog_info(list(request.form)[1])[0]
-        print(info)
         return render_template('view.html', username = session['username'], infor = info)
     
 @app.route('/edit', methods=['GET', 'POST'])
@@ -118,7 +125,6 @@ def profile():
         info = get_user_info(request.form['user'])[0]
         blogs = get_user_blogs(request.form['user'])
         return render_template('profile.html', username = session['username'], u=info, blogs=blogs)
-
 
 
 if __name__ == "__main__": #false if this file imported as module
