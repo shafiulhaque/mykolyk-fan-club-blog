@@ -7,13 +7,15 @@
   </head>
 
   <body>
-		<form action="/logout" method="POST">
-			<input type="submit" name="sub2" value="logout">
-		</form>
+    <div class="navbar">
+      <form action="/logout" method="POST">
+        <input type="submit" name="sub2" value="logout">
+      </form>
 
-    <form action="/" method="GET">
-			<input type="submit" value="home">
-		</form>
+      <form action="/" method="GET">
+        <input type="submit" value="home">
+      </form>
+    </div>
 
     <h3> PROFILE OF: {{u[0]}} </h3>
     <h4> DATE OF CREATION: {{u[2]}} </h4>

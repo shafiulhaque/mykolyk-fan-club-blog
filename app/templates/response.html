@@ -7,37 +7,42 @@
   </head>
 
   <body>
-    <form action="/logout" method="POST">
-      <input type="submit" name="sub2" value="logout">
-    </form>
-    <form action="/profile" method="GET">
-      <button type="submit" name="{{username}}">
-          <div>View Profile</div>
-      </button>
-    </form>
-    <div class="body-container">
-      <br>
-      <h1>
-        Welcome, {{username}}, of the Mykolyk Fan Club!
-      </h1>
-      <br>
-      <form action="/create" method="GET">
-        <input type="submit" value="create">
-      </form>
-      <br>
-      <h3>Blogs</h3>
-
-      {% for row in all_blogs %}
-      <form action="/view" method="GET">
-      <button type="submit" name="{{row[0]}}">
-          <div>{{row[2]}}</div>
-      </button>
+    <div class="navbar">
+      <form action="/logout" method="POST">
+        <input type="submit" name="sub2" value="Logout">
       </form>
       <form action="/profile" method="GET">
-      <button type="submit" name="{{row[1]}}">
-          <div>By: {{row[1]}}</div>
-      </button>
+        <button type="submit" name="{{username}}">
+            <div>View Profile</div>
+        </button>
       </form>
+    </div>
+    <div class="body-container">
+      <div class="landing">
+        <h1>
+          Welcome, {{username}}, of the Mykolyk Fan Club!
+        </h1>
+        <br>
+        <form action="/create" method="GET">
+          <input type="submit" value="CREATE NEW POST">
+        </form>
+        <br>
+      </div>
+
+      <h2><u>Blogs</u></h2>
+      {% for row in all_blogs %}
+      <div class="blog-entries">
+        <form action="/view" method="GET">
+          <button type="submit" name="{{row[0]}}">
+            <div>{{row[2]}}</div>
+          </button>
+        </form>
+        <form action="/profile" method="GET">
+          <button type="submit" name="{{row[1]}}">
+            <div>By: {{row[1]}}</div>
+          </button>
+        </form>
+      </div>
       <br><br>
       {% endfor %}
 
