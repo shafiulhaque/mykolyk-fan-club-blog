@@ -29,4 +29,4 @@ April -- 11/13/2022 17:25
 	made blogs have unqiue ids
 
 April -- 11/15/2022 1:07 
-	created change password function
+	created change password functions and added new params for user
