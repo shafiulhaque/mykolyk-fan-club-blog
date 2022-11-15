@@ -50,6 +50,6 @@ python3 __init__.py
 
 `4) Open the following link in any web browser`
 ```
-https://127.0.0.1:500
+https://127.0.0.1:5000
 ```
  
