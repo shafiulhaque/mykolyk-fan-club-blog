@@ -155,11 +155,11 @@ def get_user_info(username):
     c = db.cursor()
 
     c.execute("SELECT * FROM users WHERE username = ?", (username,))
-    all_users = c.fetchall()
+    user_info = c.fetchall()
 
     db.close()
 
-    return all_users
+    return user_info
 
 def get_all_blogs():
     db = sqlite3.connect(DB_FILE)
