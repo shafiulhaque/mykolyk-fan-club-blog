@@ -81,6 +81,14 @@ def view():
         return redirect('/')
     if request.method == 'GET':
         info = get_blog_info(list(request.args)[0])[0]
+        print(info)
+        return render_template('view.html', username = session['username'], infor = info)
+    if request.method == 'POST':
+        print(list(request.form)[1])
+        print(request.form['content'])
+        edit_blog(list(request.form)[1], request.form['content'])
+        info = get_blog_info(list(request.form)[1])[0]
+        print(info)
         return render_template('view.html', username = session['username'], infor = info)
     
 @app.route('/edit', methods=['GET', 'POST'])
@@ -92,6 +100,9 @@ def edit():
         if edit_blog_check(info[0], session['username']):
             return render_template('edit.html', username = session['username'], infor = info)
         return render_template('view.html', username = session['username'], infor = info, error ="This blog doesn't belong to you")
+    if request.method == 'POST':
+        return redirect('/view')
+        
     
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
