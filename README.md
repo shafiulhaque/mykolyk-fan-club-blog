@@ -1,35 +1,21 @@
 # mykolyk fan club blog
-## Shafiul Haque, Pd 8, PM
+## Shafiul Haque, Pd 8, PM, Dev
 
-## April Li, Pd 8
+## April Li, Pd 8, Dev
 
-## David Deng, Pd 8
-
-Database Organization
+## David Deng, Pd 8, Dev
 
 
-## User information 
-- Table to store user login information (username and password) 
-- Teacher user will need a unique username
-- Data would be stored using SQLite
+## Mykolyk Fan Club Blog
+What if you could share your thoughts with the world? Well, then why not use a blog? The Mykolyk Fan Club has come together to create a blog website, where users can post their blog entries to the world, edit their own entries, and view the entries of other users. Cookies are used to save the login information of a user when they are logged in. Each blog is stored in a database with a unique ID. On the home page, everyone’s blog entries appear, and if you click on someone’s profile, information about their account along with their blog entries appears. 
 
+Data for users and blogs would be stored through SQLite with the discobandit.db database and the website would be run with Flask through init.py (the main python file with routes and links) and db.py (with SQLite functions). There are different html files for different webpages that the user can be on, and information is sent from one page through another with GET and POST Requests. There are buttons on each page as well as URLs that a user can use to navigate from one page to another. 
 
-## Blog information 
-- Table would be used to store all blogs
-- When the blog is edited, the old blog space will be replaced with the new one
-- When new blog is created, new blog space will appear 
-- Each blog will be given a unique ID to help organize the data
-- The unique ID would be generated using the random() function
-
-
-## Pages
-- Table would be used to store all pages of the website 
-- Will store html template links 
-- When data is loaded into the template links, the specific webpage would show
+Imagination is yours for the taking. Clone the repository, run the app, and enjoy!
 
 
 
-## How to Run
+## How to Clone, Install, and Run
 
 `1) Clone the project `
 ```
