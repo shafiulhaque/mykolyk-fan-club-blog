@@ -42,6 +42,30 @@ def create_user(username, password):
     db.commit()
     db.close()
 
+def create_user(username, password, bio):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    if not (check_user_exist(username)):
+        t = datetime.now()
+        time = t.strftime("%B %d, %Y %H:%M")
+        c.execute("INSERT INTO users VALUES(?, ?, ?, ?)", (username, password, time, bio))
+    else:
+        print("ERROR: Username already exists")
+
+    db.commit()
+    db.close()
+
+def change_bio(username, new_bio):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("UPDATE users SET bio = ? WHERE username = ?", (new_bio, username))
+
+    db.commit()
+    db.close()
+
+
 def login_check(username, password): #return True is username and password match 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
