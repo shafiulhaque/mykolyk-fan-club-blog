@@ -66,6 +66,8 @@ def disp_logoutpage():
 
 @app.route("/response", methods=['GET', 'POST'])
 def mainpage():
+    if 'username' not in session:
+        return redirect('/')
     return render_template('response.html', username = session['username'], all_blogs = get_all_blogs())
 
 @app.route('/create', methods=['GET', 'POST'])
@@ -77,8 +79,6 @@ def create():
     if request.method == 'POST':
         if (request.form['title'].isspace() or len(request.form['title']) == 0):
             return render_template('create.html', username = session['username'], error="There needs to be a title!")
-        if (request.form['content'].isspace() or len(request.form['content']) == 0):
-            return render_template('create.html', username = session['username'], error="Content is empty.")
         create_blog(session['username'], request.form['title'], request.form['content'])
         all_blogs = get_all_blogs()
         return redirect('/response')
@@ -92,8 +92,6 @@ def view():
         print(info)
         return render_template('view.html', username = session['username'], infor = info)
     if request.method == 'POST':
-        if (request.form['content'].isspace() or len(request.form['content']) == 0):
-            return render_template('view.html', username = session['username'], error="Content is empty.")
         edit_blog(list(request.form)[1], request.form['content'])
         info = get_blog_info(list(request.form)[1])[0]
         return render_template('view.html', username = session['username'], infor = info)
