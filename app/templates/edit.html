@@ -12,13 +12,15 @@
       Welcome, {{username}}, of the Mykolyk Fan Club!
     </h1>
 
-		<form action="/edit" method="POST">
+		<form action="/view" method="POST">
       <p> Title: {{infor[2]}} </p>
       <p> OLD CONTENT: {{infor[3]}} </p>
       <p> NEW CONTENT: </p>
       <input type="text" name="content">
       <br><br>
-			<input type="submit" name="sub2" value="modify">
+      <button type="submit" name="{{infor[0]}}">
+        <div>modify</div>
+      </button>
 		</form>
 
     <br>
