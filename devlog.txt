@@ -10,23 +10,57 @@ firstL -- TIMESTAMP\n
 	
 -------------------------------------------------------------------------------
 Shafiul -- 11/1/2022 5:46
-	added both versions of our original design doc
+	added both versions (v0 and v1) of our original design doc
+	with v1, we added our team heading, more detailed information about database organization, an accurate sitemap, descriptions of each path, and more details as to how we will split up the work
 Shafiul -- 11/3/2022 6:44
+	created devlog, and uploaded the design docs v0 and v1
+Shafiul -- 11/3/2022 6:48
 	finished design.pdf
-April, David -- 11/7/2022 13:47
+	with this final version, we made sure to be more comprehensive on the descriptions of each path, with specific html files and py files that we would use (although it turns out that we don't need so many files)
+Shafiul -- 11/3/2022 6:50
+	updated readme with team names
+April, David -- 11/8/2022 12:41
 	added the flag and updated design.pdf
-April -- 11/8/2022 12:40
+April -- 11/8/2022 12:43
 	uploaded our login and logout functions from k19
 Shafiul -- 11/10/2022 6:45
 	updated the requirements.txt
+Shafiul -- 11/10/2022 6:45
+	added the required files and folders
+Shafiul -- 11/10/2022 13:41
+	updated readme with proper instructions
 April -- 11/12/2022 18:31
 	created tables and created functions to create new user and check user information
 April -- 11/13/2022 14:15 
 	made create blog and edit blog functions, made get functions for users and blogs, imported time
 April -- 11/13/2022 14:32 
 	fixed up get functions for the blog 
+Shafiul -- 11/13/2022 17:13
+	created the html files required
 April -- 11/13/2022 17:25
 	made blogs have unqiue ids
-
+David, Shafiul -- 11/14/2022 13:23
+	removed gitignore file
+	create routes for create, login, signup, edit, and view
+Shafiul -- 11/14/2022 17:25
+	making sure that all the html files were placed correctly
+	psuedocode/basic html code put in
+David -- 11/15/2022 1:04
+	making a css for the website
 April -- 11/15/2022 1:07 
 	created change password functions and added new params for user
+Shafiul -- 11/15/2022 1:29
+	finalizing the __init__.py file, with all routes served correctly
+Shafiul -- 11/15/2022 2:23
+	making sure that the database is functioning properly through flask
+David -- 11/15/2022 2:25
+	implementing style to all pages
+David -- 11/15/2022 3:45
+	completed the css file, with new classes and designs
+David, Shafiul -- 11/15/2022 4:00
+	merging branches with one another and correlating the code so that the app runs properly
+David -- 11/15/2022 4:04
+	revert font size of registration instructions, finish view and edit, allow for multiline editing when editing post
+Shafiul -- 11/15/2022 4:38
+	final edit - ran through all the code, fixing little mistakes, and displaying everything properly on the website
+	
