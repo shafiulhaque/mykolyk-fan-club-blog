@@ -33,10 +33,18 @@ html {
     color: blue;
 }
 
+.navbar {
+    margin: 1rem;
+}
+
+.navbar form {
+    display: inline-block;
+    padding: 0 5px;
+}
+
 input,
 button {
     cursor: pointer;
-    text-transform: uppercase;
     background-color: none;
     margin: 8px 0;
     border: 2px solid black;
@@ -45,7 +53,8 @@ button {
     padding: 10px;
 }
 
-input:hover {
+input:hover,
+button:hover {
     border: 2px solid whitesmoke;
 }
 
@@ -54,10 +63,14 @@ input[type="password"] {
     text-transform: none;
 }
 
-input[value="logout"] {
+input[value="Logout"] {
     color: red;
 }
 
 .error {
     color: red;
+}
+
+.blog-entries form {
+    display: inline-block;
 }
