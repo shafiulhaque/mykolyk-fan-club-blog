@@ -43,3 +43,12 @@ input {
 input:hover {
     border: 2px solid whitesmoke;
 }
+
+input[type="text"],
+input[type="password"] {
+    text-transform: none;
+}
+
+.error {
+    color: red;
+}

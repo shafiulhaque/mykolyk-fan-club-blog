@@ -136,6 +136,17 @@ def get_usernames_passwords():
 
     return all_users
 
+def get_user_info(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user_info = c.fetchall()
+
+    db.close()
+
+    return user_info
+
 def get_all_blogs():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
