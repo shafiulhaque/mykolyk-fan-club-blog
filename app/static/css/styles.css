@@ -29,7 +29,8 @@ html {
     color: blue;
 }
 
-input {
+input,
+button {
     cursor: pointer;
     text-transform: uppercase;
     background-color: none;
@@ -47,6 +48,10 @@ input:hover {
 input[type="text"],
 input[type="password"] {
     text-transform: none;
+}
+
+input[value="logout"] {
+    color: red;
 }
 
 .error {
