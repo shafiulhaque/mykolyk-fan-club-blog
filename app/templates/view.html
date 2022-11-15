@@ -20,7 +20,12 @@
     <p class="error"><b>{{error}}</b></p>
     <div class="landing body-container">
       <p><h3> {{infor[2]}} </h3></p>
-      <p class="view"> WRITTEN BY "{{infor[1]}}" </p>
+      <p class="view"> WRITTEN BY: </p>
+      <form action="/profile" method="GET">
+        <button type="submit" name="{{infor[1]}}">
+          <div>{{infor[1]}}</div>
+        </button>
+      </form>
       <p class="view"> LAST MODIFIED ON {{infor[4]}} </p>
       <br>
       <br>
