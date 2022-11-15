@@ -12,6 +12,10 @@ html {
     background-color: lavender;
 }
 
+.landing {
+    background-color: whitesmoke;
+}
+
 .body-container {
     margin-top: 10vh!important;
     padding: 20px 10px;
