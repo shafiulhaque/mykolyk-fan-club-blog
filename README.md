@@ -29,20 +29,27 @@ Database Organization
 
 
 
-## How to Clone/Install
+## How to Run
 
+`1) Clone the project `
 ```
-git clone ssh
+git clone https://github.com/shafiulhaque/mykolyk-fan-club-blog.git
 ```
 
-How to Run
-1) 
+`2) Navigate to root directory`
+
 ``` 
-cd app
+cd mykolyk-fan-club-blog/app
 ```
-2)
+
+`3) Run the program`
+
 ``` 
 python3 __init__.py
 ```
-3) 
-Copy the link provided and open it. 
+
+`4) Open the following link in any web browser`
+```
+https://127.0.0.1:500
+```
+ 
