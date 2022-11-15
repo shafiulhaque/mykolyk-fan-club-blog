@@ -109,9 +109,9 @@ def profile():
     if 'username' not in session:
         return redirect('/')
     if request.method == 'GET':
-        story_id = list(request.form)[0][0]
-        get_blog_info(story_id)
-        return render_template('view.html', username = session['username'])
+        user = list(request.args)[0]
+        blogs = get_user_blogs(user)
+        return render_template('profile.html', username = session['username'], u=user, blogs=blogs)
     
 
 
