@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 
-
-<html>
-
+<html lang="en">
   <head>
-    <title> SIGNUP PAGE </title>
+    <title>SIGNUP</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
   </head>
 
   <body>
-    <h1>
-      Welcome, Members of the Mykolyk Fan Club!
-    </h1>
-
-
-    <h3>
-      Create your account to get started.
-    </h3>
-    <p><b>{{error}}</b></p>
-    <form action="/signup" method="POST">
-      <p> Username </p>
-      <input type="text" name="username">
-      <br>
-      <p> Password </p>
-      <input type="password" name="password">
-      <br><br>
-      <input type="submit" name="sub1" value="signup">
-    </form>
-    <p> If you have an account, then login! </p>
-    <form action="/login" method="GET">
-			<input type="submit" value="login">
-		</form>
-    <br>
-    <form action="/" method="POST">
-			<input type="submit" value="home">
-		</form>
-    <br>
+    <div class="body-container">
+      <form action="/" method="POST">
+        <input type="submit" value="home">
+      </form>
+      <h3>
+        Create your account to get started.
+      </h3>
+      <p class="error"><b>{{error}}</b></p>
+      <form action="/signup" method="POST">
+        <input type="text" name="username" placeholder="USERNAME">
+        <br>
+        <input type="password" name="password" placeholder="PASSWORD">
+        <br><br>
+        <input type="submit" name="sub1" value="signup">
+      </form>
+      <p>If you have an account...</p>
+      <form action="/login" method="GET">
+        <input type="submit" value="login">
+      </form>
+    </div>
   </body>
 
 </html>
