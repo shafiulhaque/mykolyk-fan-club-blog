@@ -21,7 +21,20 @@
 			<input type="submit" value="home">
 		</form>
 
-    <h3> PROFILE OF: {{u}} </h3>
+    <h3> PROFILE OF: {{u[0]}} </h3>
+    <h4> DATE OF CREATION: {{u[2]}} </h4>
+    <h4> BIO: {{u[3]}} </h4>
+
+    {% if u[0] == username %}
+    <form action="/profile" method="POST">
+    <p> Update Bio </p>
+    <input type="text" name="bio">
+    <button type="submit" name="user" value="{{u[0]}}">
+        <div>change</div>
+    </button>
+    </form>
+    {% endif %}
+    <br>
 
     {% for row in blogs %}
     <form action="/view" method="GET">
@@ -30,7 +43,7 @@
     </button>
     </form>
     <form action="/profile" method="GET">
-    <button type="submit" name="{{row[0]}}">
+    <button type="submit" name="{{row[1]}}">
         <div>By: {{row[1]}}</div>
     </button>
     </form>

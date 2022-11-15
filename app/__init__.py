@@ -110,9 +110,14 @@ def profile():
         return redirect('/')
     if request.method == 'GET':
         user = list(request.args)[0]
+        info = get_user_info(user)[0]
         blogs = get_user_blogs(user)
-        return render_template('profile.html', username = session['username'], u=user, blogs=blogs)
-    
+        return render_template('profile.html', username = session['username'], u=info, blogs=blogs)
+    if request.method == 'POST':
+        change_bio(request.form['user'], request.form['bio'])
+        info = get_user_info(request.form['user'])[0]
+        blogs = get_user_blogs(request.form['user'])
+        return render_template('profile.html', username = session['username'], u=info, blogs=blogs)
 
 
 
