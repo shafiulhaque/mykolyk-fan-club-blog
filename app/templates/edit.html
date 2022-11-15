@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+
+<html>
+
+  <head>
+    <title> EDIT PAGE </title>
+  </head>
+
+  <body>
+    <h1>
+      Welcome, {{username}}, of the Mykolyk Fan Club!
+    </h1>
+
+		<form action="/edit" method="POST">
+      <p> Title: {{infor[2]}} </p>
+      <p> OLD CONTENT: {{infor[3]}} </p>
+      <p> NEW CONTENT: </p>
+      <input type="text" name="content">
+      <br><br>
+			<input type="submit" name="sub2" value="modify">
+		</form>
+
+    <br>
+  </body>
+
+</html>
