@@ -74,3 +74,8 @@ input[value="Logout"] {
 .blog-entries form {
     display: inline-block;
 }
+
+h2 {
+    font-size: 28px;
+    padding: 10px 0;
+}

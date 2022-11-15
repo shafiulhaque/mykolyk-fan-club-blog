@@ -18,17 +18,18 @@
       </form>
     </div>
     <div class="body-container">
-      <br>
-      <h1>
-        Welcome, {{username}}, of the Mykolyk Fan Club!
-      </h1>
-      <br>
-      <form action="/create" method="GET">
-        <input type="submit" value="CREATE">
-      </form>
-      <br>
-      <h2>Blogs</h2>
+      <div class="landing">
+        <h1>
+          Welcome, {{username}}, of the Mykolyk Fan Club!
+        </h1>
+        <br>
+        <form action="/create" method="GET">
+          <input type="submit" value="CREATE NEW POST">
+        </form>
+        <br>
+      </div>
 
+      <h2><u>Blogs</u></h2>
       {% for row in all_blogs %}
       <div class="blog-entries">
         <form action="/view" method="GET">
