@@ -7,24 +7,25 @@
   </head>
 
   <body>
-    <form action="/" method="POST">
-			<input type="submit" value="home">
-		</form>
-    <form action="/edit" method="GET">
-			<button type="submit" name="{{infor[0]}}">
-        <div>EDIT</div>
-      </button>
-		</form>
-    <p><b>{{error}}</b></p>
-    <br>
+    <div class="navbar">
+      <form action="/" method="POST">
+        <input type="submit" value="Home">
+      </form>
+      <form action="/edit" method="GET">
+        <button type="submit" name="{{infor[0]}}">
+          <div>EDIT</div>
+        </button>
+      </form>
+    </div>
+    <p class="error"><b>{{error}}</b></p>
+    <div class="landing body-container">
       <p><h3> {{infor[2]}} </h3></p>
-      <p> WRITTEN BY "{{infor[1]}}" </p>
-      <p> LAST MODIFIED ON {{infor[4]}} </p>
+      <p class="view"> WRITTEN BY "{{infor[1]}}" </p>
+      <p class="view"> LAST MODIFIED ON {{infor[4]}} </p>
       <br>
       <br>
-      {{infor[3]}}
-
-    <br>
+      <p class="blog-text">{{infor[3]}}</p>
+    </div>
   </body>
 
 </html>

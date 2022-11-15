@@ -96,3 +96,11 @@ h2 {
     font-size: 24px;
     padding-bottom: 10px;
 }
+
+.body-container p.view {
+    font-size: 15px;
+}
+
+.body-container p.blog-text {
+    font-size: 18px;
+}

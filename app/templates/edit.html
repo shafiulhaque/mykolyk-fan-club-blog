@@ -7,26 +7,27 @@
   </head>
 
   <body>
-    <form action="/" method="POST">
-			<input type="submit" value="home">
-		</form>
-    <br>
-    <form action="/view" method="GET">
-			<input type="submit" value="back" name="{{infor[0]}}">
-		</form>
+    <div class="navbar">
+      <form action="/" method="POST">
+        <input type="submit" value="Home">
+      </form>
+      <form action="/view" method="GET">
+        <input type="submit" value="Back" name="{{infor[0]}}">
+      </form>
+    </div>
 
-		<form action="/view" method="POST">
-      <p> Title: {{infor[2]}} </p>
-      <p> OLD CONTENT: {{infor[3]}} </p>
-      <p> NEW CONTENT: </p>
-      <input type="text" name="content">
-      <br><br>
-      <button type="submit" name="{{infor[0]}}">
-        <div>modify</div>
-      </button>
-		</form>
-
-    <br>
+    <div class="body-container">
+      <form action="/view" method="POST">
+        <p> Title: {{infor[2]}} </p>
+        <p> OLD CONTENT: {{infor[3]}} </p>
+        <p> NEW CONTENT: </p>
+        <input type="text" name="content">
+        <br><br>
+        <button type="submit" name="{{infor[0]}}">
+          <div>Modify</div>
+        </button>
+      </form>
+    </div>
   </body>
 
 </html>
