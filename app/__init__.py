@@ -18,7 +18,7 @@ create_user('shaf','bruh1234')
 create_user('akitiss','horanghae')
             
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def show():
     if 'username' in session: #if user is already in session, will go to response page logged in
         return redirect('/response')
@@ -80,15 +80,19 @@ def view():
     if 'username' not in session:
         return redirect('/')
     if request.method == 'GET':
-        get_blog_info(request.form[name])
-        return render_template('view.html', username = session['username'])
+        info = get_blog_info(list(request.args)[0])[0]
+        return render_template('view.html', username = session['username'], infor = info)
+    
+    
+    
     
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
     if 'username' not in session:
         return redirect('/')
     if request.method == 'GET':
-        get_blog_info(request.form[name])
+        info = get_blog_info(request.form[name])
+        print(info)
         return render_template('view.html', username = session['username'])
     
 @app.route('/profile', methods=['GET', 'POST'])
@@ -96,7 +100,8 @@ def profile():
     if 'username' not in session:
         return redirect('/')
     if request.method == 'GET':
-        get_blog_info(request.form[name])
+        story_id = list(request.form)[0][0]
+        get_blog_info(story_id)
         return render_template('view.html', username = session['username'])
     
 
