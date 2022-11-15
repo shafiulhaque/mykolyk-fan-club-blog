@@ -1,4 +1,4 @@
-# mykolyk fan club blog
+# mykolyk fan club blog by mykolyk fan club
 ## Shafiul Haque, Pd 8, PM, Dev
 
 ## April Li, Pd 8, Dev
