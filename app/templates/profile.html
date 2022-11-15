@@ -17,11 +17,11 @@
 		</form>
     <br>
 
-    <form action="/create" method="GET">
-			<input type="submit" value="create">
+    <form action="/home" method="GET">
+			<input type="submit" value="home">
 		</form>
 
-    <h3> Blogs </h3>
+    <h3> PROFILE OF: {{row[1]}} </h3>
 
     {% for row in all_blogs %}
     <form action="/view" method="GET">
@@ -30,7 +30,7 @@
     </button>
     </form>
     <form action="/profile" method="GET">
-    <button type="submit" name="{{row[1]}}">
+    <button type="submit" name="{{row[0]}}">
         <div>By: {{row[1]}}</div>
     </button>
     </form>
