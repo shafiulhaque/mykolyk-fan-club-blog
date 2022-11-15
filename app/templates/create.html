@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 
-
-<html>
-
+<html lang="en">
   <head>
-    <title> CREATE PAGE </title>
+    <title>CREATE</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
   </head>
 
   <body>
-    <h1>
-      Welcome, {{username}}, of the Mykolyk Fan Club!
-    </h1>
     <form action="/" method="POST">
 			<input type="submit" value="home">
 		</form>
     <br>
 
-		<form action="/create" method="POST">
-      <p> Title </p>
-      <input type="text" name="title">
-      <br>
-      <p> Content </p>
-      <input type="text" name="content">
-      <br><br>
-			<input type="submit" name="sub2" value="create">
-		</form>
+    <div class="body-container">
+      <form action="/create" method="POST">
+        <p> Title </p>
+        <input type="text" name="title">
+        <br>
+        <p> Content </p>
+        <input type="text" name="content">
+        <br><br>
+        <input type="submit" name="sub2" value="create">
+      </form>
 
-    <br>
+      <br>
+    </div>
   </body>
 
 </html>
