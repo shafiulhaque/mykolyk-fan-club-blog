@@ -53,6 +53,15 @@ def login_check(username, password): #return True is username and password match
         return False
     return True
 
+def change_password(username, new_password):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("UPDATE users SET password = ? WHERE username = ?", (new_password, username))
+
+    db.commit()
+    db.close()
+
 
 ##BLOG FUNCTIONS##
 def create_blog(username, title, content):
@@ -184,4 +193,9 @@ print(get_blog_info(3))
 pprint.pprint(get_user_blogs("akitiss"))
 pprint.pprint(get_user_blogs("pie"))
 pprint.pprint(get_user_blogs("name"))
+'''
+'''
+print(get_usernames_passwords())
+change_password('akitiss', 'horanghae')
+print(get_usernames_passwords())
 '''
