@@ -15,6 +15,23 @@
 		<form action="/logout" method="POST">
 			<input type="submit" name="sub2" value="logout">
 		</form>
+
+    <form action="/create" method="GET">
+			<input type="submit" value="create">
+		</form>
+
+    <h3> Blogs </h3>
+
+    {% for row in all_blogs %}
+    <form action="/view" method="GET">
+    <button type="text" name="{{row[0]}}" value="{{row[0]}}">
+        <div>{{row[3]}}</div>
+        <div>By {{row[1]}}</div>
+    </button>
+    </form>
+    <br><br>
+    {% endfor %}
+
     <br>
   </body>
 

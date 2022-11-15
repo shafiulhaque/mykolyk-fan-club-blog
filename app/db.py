@@ -118,9 +118,12 @@ def get_usernames_passwords():
 def get_all_blogs():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
+    
+    all_blogs = []
 
     c.execute("SELECT * FROM blogs")
     all_blogs = c.fetchall()
+    print(all_blogs)
 
     db.close()
 
