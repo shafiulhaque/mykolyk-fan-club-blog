@@ -63,4 +63,6 @@ David -- 11/15/2022 4:04
 	revert font size of registration instructions, finish view and edit, allow for multiline editing when editing post
 Shafiul -- 11/15/2022 4:38
 	final edit - ran through all the code, fixing little mistakes, and displaying everything properly on the website
+Shafiul -- 11/16/2022 7:57
+	Final edits for the readme file to fix up the summary. Dev log completed.
 	
